@@ -151,7 +151,6 @@ void set_fixed_type(FixedSym id, const char *name, symbol *parentTypeSym, uint64
 	type->sizeB = (type->sizeA+0xf)&0xfff0;
 	type->heap_base = (flags>>16)&0xffff;
 
-	// we can narrow the number of methods if needed, but not expand outside what we allocated.
 	int num_methods = (flags>>32)&0xffff;
 	if (type->allocated_length < num_methods)
 		type->allocated_length = num_methods;
