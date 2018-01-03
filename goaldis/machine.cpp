@@ -153,7 +153,7 @@ void set_fixed_type(FixedSym id, const char *name, symbol *parentTypeSym, uint64
 
 	// we can narrow the number of methods if needed, but not expand outside what we allocated.
 	int num_methods = (flags>>32)&0xffff;
-	if (num_methods < type->allocated_length)
+	if (type->allocated_length < num_methods)
 		type->allocated_length = num_methods;
 
 	if (!print_fn)
